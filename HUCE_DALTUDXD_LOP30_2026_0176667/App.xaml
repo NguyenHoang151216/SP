@@ -1,0 +1,214 @@
+<Application x:Class="HUCE_DALTUDXD_LOP30_2026_0176667.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:behaviors="clr-namespace:HUCE_DALTUDXD_LOP30_2026_0176667.Behaviors"
+             xmlns:converters="clr-namespace:HUCE_DALTUDXD_LOP30_2026_0176667.Converters"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light"
+                                             PrimaryColor="Teal"
+                                             SecondaryColor="Amber" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="AppBackgroundBrush" Color="#EEF5F6" />
+            <SolidColorBrush x:Key="AppSurfaceBrush" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="AppSurfaceAltBrush" Color="#F6FAFA" />
+            <SolidColorBrush x:Key="AppBorderBrush" Color="#DDE9EA" />
+            <SolidColorBrush x:Key="AppPrimaryBrush" Color="#0F6B73" />
+            <SolidColorBrush x:Key="AppPrimaryDarkBrush" Color="#0A4850" />
+            <SolidColorBrush x:Key="AppAccentBrush" Color="#F2A541" />
+            <SolidColorBrush x:Key="AppSuccessBrush" Color="#2F9E75" />
+            <SolidColorBrush x:Key="AppDangerBrush" Color="#E35D4F" />
+            <SolidColorBrush x:Key="AppTextBrush" Color="#172B2F" />
+            <SolidColorBrush x:Key="AppMutedTextBrush" Color="#6A7E83" />
+            <converters:DecimalInputConverter x:Key="DecimalInputConverter" />
+
+            <Style TargetType="{x:Type Page}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="TextElement.Foreground" Value="{StaticResource AppTextBrush}" />
+            </Style>
+
+            <Style x:Key="PageChromeStyle" TargetType="{x:Type Border}">
+                <Setter Property="Background" Value="{StaticResource AppBackgroundBrush}" />
+                <Setter Property="Padding" Value="18" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+
+            <Style x:Key="SectionCardStyle" TargetType="{x:Type Border}">
+                <Setter Property="Background" Value="{StaticResource AppSurfaceBrush}" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="16" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Margin" Value="0,0,0,14" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="12"
+                                          Direction="270"
+                                          Opacity="0.07"
+                                          ShadowDepth="4"
+                                          Color="#0A4850" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="SoftPanelStyle" TargetType="{x:Type Border}">
+                <Setter Property="Background" Value="{StaticResource AppSurfaceAltBrush}" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="14" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+
+            <Style x:Key="PageTitleTextStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Foreground" Value="{StaticResource AppPrimaryDarkBrush}" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0,0,0,8" />
+            </Style>
+
+            <Style x:Key="SectionTitleTextStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Foreground" Value="{StaticResource AppPrimaryDarkBrush}" />
+                <Setter Property="Margin" Value="0,0,0,10" />
+            </Style>
+
+            <Style x:Key="FieldLabelTextStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Foreground" Value="{StaticResource AppMutedTextBrush}" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0,0,12,10" />
+            </Style>
+
+            <Style x:Key="UnitTextStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Foreground" Value="{StaticResource AppMutedTextBrush}" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="8,0,0,0" />
+            </Style>
+
+            <Style x:Key="ModernTextBoxStyle"
+                   TargetType="{x:Type TextBox}"
+                   BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+                <Setter Property="MinHeight" Value="38" />
+                <Setter Property="Width" Value="140" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="HorizontalContentAlignment" Value="Right" />
+                <Setter Property="TextAlignment" Value="Right" />
+                <Setter Property="Padding" Value="10,3" />
+                <Setter Property="Margin" Value="0,0,0,8" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Language" Value="en-US" />
+                <Setter Property="behaviors:DecimalTextBoxBehavior.IsEnabled" Value="True" />
+            </Style>
+
+            <Style x:Key="ModernComboBoxStyle"
+                   TargetType="{x:Type ComboBox}"
+                   BasedOn="{StaticResource MaterialDesignOutlinedComboBox}">
+                <Setter Property="MinHeight" Value="38" />
+                <Setter Property="Width" Value="170" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Padding" Value="10,3" />
+                <Setter Property="Margin" Value="0,0,0,8" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="PrimaryButtonStyle"
+                   TargetType="{x:Type Button}"
+                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                <Setter Property="Background" Value="{StaticResource AppPrimaryBrush}" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppPrimaryBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="MinHeight" Value="42" />
+                <Setter Property="Padding" Value="18,0" />
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="8" />
+            </Style>
+
+            <Style x:Key="AccentButtonStyle"
+                   TargetType="{x:Type Button}"
+                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                <Setter Property="Background" Value="{StaticResource AppAccentBrush}" />
+                <Setter Property="Foreground" Value="#23170A" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppAccentBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="MinHeight" Value="42" />
+                <Setter Property="Padding" Value="18,0" />
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="8" />
+            </Style>
+
+            <Style x:Key="SuccessButtonStyle"
+                   TargetType="{x:Type Button}"
+                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                <Setter Property="Background" Value="{StaticResource AppSuccessBrush}" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppSuccessBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="MinHeight" Value="42" />
+                <Setter Property="Padding" Value="18,0" />
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="8" />
+            </Style>
+
+            <Style x:Key="DangerButtonStyle"
+                   TargetType="{x:Type Button}"
+                   BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                <Setter Property="Background" Value="{StaticResource AppDangerBrush}" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppDangerBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="MinHeight" Value="42" />
+                <Setter Property="Padding" Value="18,0" />
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="8" />
+            </Style>
+
+            <Style x:Key="NavButtonStyle"
+                   TargetType="{x:Type Button}"
+                   BasedOn="{StaticResource MaterialDesignFlatButton}">
+                <Setter Property="Height" Value="42" />
+                <Setter Property="Margin" Value="0,0,6,0" />
+                <Setter Property="Padding" Value="12,0" />
+                <Setter Property="Foreground" Value="{StaticResource AppPrimaryDarkBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="8" />
+            </Style>
+
+            <Style x:Key="ModernDataGridStyle"
+                   TargetType="{x:Type DataGrid}"
+                   BasedOn="{StaticResource MaterialDesignDataGrid}">
+                <Setter Property="Background" Value="{StaticResource AppSurfaceBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="RowHeight" Value="36" />
+                <Setter Property="ColumnHeaderHeight" Value="38" />
+                <Setter Property="GridLinesVisibility" Value="Horizontal" />
+                <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource AppBorderBrush}" />
+                <Setter Property="VerticalGridLinesBrush" Value="{StaticResource AppBorderBrush}" />
+                <Setter Property="CanUserAddRows" Value="False" />
+                <Setter Property="AlternationCount" Value="2" />
+                <Setter Property="AlternatingRowBackground" Value="#F8FBFC" />
+                <Setter Property="HeadersVisibility" Value="Column" />
+            </Style>
+
+            <Style x:Key="ModernGroupBoxStyle"
+                   TargetType="{x:Type GroupBox}"
+                   BasedOn="{StaticResource MaterialDesignCardGroupBox}">
+                <Setter Property="Margin" Value="0,0,0,16" />
+                <Setter Property="Padding" Value="12" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppBorderBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource AppPrimaryDarkBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

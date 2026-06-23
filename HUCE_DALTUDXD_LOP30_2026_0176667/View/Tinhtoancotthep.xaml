@@ -1,0 +1,238 @@
+<Page x:Class="HUCE_DALTUDXD_LOP30_2026_0176667.View.Tinhtoancotthep"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="Tinhtoancotthep"
+      Height="656"
+      Width="Auto"
+      Background="Transparent">
+
+    <Grid>
+        <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden" />
+
+        <Border x:Name="ThongsomongPage"
+                Style="{StaticResource PageChromeStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Frame x:Name="MainContentFrame"
+                       NavigationUIVisibility="Hidden"
+                       Background="Transparent" />
+
+                <StackPanel Grid.Row="0"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="Tính toán cốt thép móng"
+                               Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="Xác định mô-men và diện tích cốt thép yêu cầu theo hai phương"
+                               FontSize="14"
+                               Foreground="{StaticResource AppMutedTextBrush}"
+                               TextAlignment="Center" />
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto"
+                              Padding="2,14,10,4">
+                    <StackPanel>
+                        <Border Style="{StaticResource SectionCardStyle}">
+                            <StackPanel>
+                                <TextBlock Text="Số liệu tính toán"
+                                           Style="{StaticResource SectionTitleTextStyle}" />
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="190" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Pong"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtPong"
+                                             Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="{Binding Pong, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             materialDesign:HintAssist.Hint="T/m²"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="bng"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtBng"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Text="{Binding Bng, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             materialDesign:HintAssist.Hint="m"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="0"
+                                               Text="lng"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtLng"
+                                             Grid.Row="2"
+                                             Grid.Column="1"
+                                             Text="{Binding Lng, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             materialDesign:HintAssist.Hint="m"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="3"
+                                               Grid.Column="0"
+                                               Text="Rs"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox Grid.Row="3"
+                                             Grid.Column="1"
+                                             Text="{Binding CuongDoThep, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             materialDesign:HintAssist.Hint="MPa"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="4"
+                                               Grid.Column="0"
+                                               Text="h0"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox Grid.Row="4"
+                                             Grid.Column="1"
+                                             Text="{Binding h0, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             materialDesign:HintAssist.Hint="m"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource SectionCardStyle}">
+                            <StackPanel>
+                                <TextBlock Text="Cốt thép theo phương cạnh dài"
+                                           Style="{StaticResource SectionTitleTextStyle}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="190" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Mlng"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtMlng"
+                                             Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="{Binding Mlng, Mode=OneWay, StringFormat={}{0:F2}}"
+                                             IsReadOnly="True"
+                                             materialDesign:HintAssist.Hint="T.m"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="Fa yêu cầu"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtFaYeuCauDai"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Text="{Binding FaYeuCauDai, Mode=OneWay, StringFormat={}{0:F2}}"
+                                             IsReadOnly="True"
+                                             materialDesign:HintAssist.Hint="mm²"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource SectionCardStyle}">
+                            <StackPanel>
+                                <TextBlock Text="Cốt thép theo phương cạnh ngắn"
+                                           Style="{StaticResource SectionTitleTextStyle}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="190" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Mbng"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtMbng"
+                                             Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="{Binding Mbng, Mode=OneWay, StringFormat={}{0:F2}}"
+                                             IsReadOnly="True"
+                                             materialDesign:HintAssist.Hint="T.m"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="Fa yêu cầu"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtFaYeuCauNgan"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Text="{Binding FaYeuCauNgan, Mode=OneWay, StringFormat={}{0:F2}}"
+                                             IsReadOnly="True"
+                                             materialDesign:HintAssist.Hint="mm²"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource SectionCardStyle}">
+                            <StackPanel>
+                                <TextBlock Text="Kết quả"
+                                           Style="{StaticResource SectionTitleTextStyle}" />
+                                <Border Style="{StaticResource SoftPanelStyle}">
+                                    <TextBlock Text="{Binding KetQuaTinhToan}"
+                                               FontSize="15"
+                                               Foreground="{StaticResource AppPrimaryDarkBrush}"
+                                               TextWrapping="Wrap" />
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Border Grid.Row="2"
+                        Background="{StaticResource AppSurfaceBrush}"
+                        BorderBrush="{StaticResource AppBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="16"
+                        Padding="14"
+                        Margin="0,14,0,0">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Button Content="Tính toán"
+                                Command="{Binding TinhToanCommand}"
+                                Style="{StaticResource PrimaryButtonStyle}"
+                                Width="150"
+                                Margin="0,0,12,0" />
+                        <Button Content="Lưu kết quả"
+                                Command="{Binding LuuCommand}"
+                                Style="{StaticResource SuccessButtonStyle}"
+                                Width="150" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

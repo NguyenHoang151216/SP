@@ -1,0 +1,165 @@
+<Window x:Class="HUCE_DALTUDXD_LOP30_2026_0176667.View.SolieuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Số liệu"
+        Height="650"
+        Width="920"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource AppBackgroundBrush}"
+        FontFamily="Segoe UI">
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Số liệu đã lưu"
+                   Style="{StaticResource PageTitleTextStyle}"
+                   Margin="0,0,0,14" />
+
+        <Border Grid.Row="1"
+                Style="{StaticResource SectionCardStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.ColumnSpan="2"
+                           Text="Thông số móng"
+                           Style="{StaticResource SectionTitleTextStyle}" />
+
+                <StackPanel Grid.Row="1"
+                            Grid.Column="0"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Chiều dài móng (m): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.chieuDaiMong}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2"
+                            Grid.Column="0"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Chiều rộng móng (m): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.chieuRongMong}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="3"
+                            Grid.Column="0"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Chiều cao móng (m): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.chieuCaoMong}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="4"
+                            Grid.Column="0"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Tải trọng đứng N (T): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.N}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="5"
+                            Grid.Column="0"
+                            Orientation="Horizontal">
+                    <TextBlock Text="Chiều sâu chôn móng (m): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.chieuSauChonMong}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Mô-men M (T.m): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.Momen}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Chiều dài cột (m): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.chieuDaiCot}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="3"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Chiều rộng cột (m): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.chieuRongCot}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="4"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="0,0,0,8">
+                    <TextBlock Text="Cường độ bê tông (MPa): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.cuongDoBeTong}" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="5"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <TextBlock Text="Cường độ thép (MPa): "
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding SolieuData.cuongDoThep}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2"
+                Style="{StaticResource SectionCardStyle}"
+                Margin="0,0,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Danh sách lớp đất"
+                           Style="{StaticResource SectionTitleTextStyle}" />
+                <DataGrid Grid.Row="1"
+                          ItemsSource="{Binding DanhSachDat}"
+                          AutoGenerateColumns="False"
+                          Style="{StaticResource ModernDataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Binding="{Binding IdDat}" Width="60" />
+                        <DataGridTextColumn Header="Loại đất" Binding="{Binding LoaiDat}" Width="90" />
+                        <DataGridTextColumn Header="Trạng thái" Binding="{Binding TrangThai}" Width="95" />
+                        <DataGridTextColumn Header="Góc ma sát (°)" Binding="{Binding GocMaSat}" Width="115" />
+                        <DataGridTextColumn Header="Mô-đun nén ép (MPa)" Binding="{Binding ModunNenEp}" Width="150" />
+                        <DataGridTextColumn Header="Lực dính (kPa)" Binding="{Binding LucDinh}" Width="120" />
+                        <DataGridTextColumn Header="Dung trọng (kN/m³)" Binding="{Binding DungTrong}" Width="140" />
+                        <DataGridTextColumn Header="Chiều dày" Binding="{Binding ChieuDay}" Width="110" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

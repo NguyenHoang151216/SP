@@ -1,0 +1,273 @@
+<Page x:Class="HUCE_DALTUDXD_LOP30_2026_0176667.View.Chongdamthung"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Title="Chongdamthung"
+      Height="656"
+      Width="Auto"
+      Background="Transparent">
+
+    <Grid>
+        <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden" />
+
+        <Border x:Name="ThongsomongPage"
+                Style="{StaticResource PageChromeStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Frame x:Name="MainContentFrame"
+                       NavigationUIVisibility="Hidden"
+                       Background="Transparent" />
+
+                <StackPanel Grid.Row="0"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="Kiểm tra chống đâm thủng"
+                               Style="{StaticResource PageTitleTextStyle}" />
+                    <TextBlock Text="Tính phản lực đáy móng và điều kiện chống đâm thủng tại vùng quanh cột"
+                               FontSize="14"
+                               Foreground="{StaticResource AppMutedTextBrush}"
+                               TextAlignment="Center" />
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto"
+                              Padding="2,14,10,4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="380" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0"
+                                Style="{StaticResource SectionCardStyle}"
+                                Margin="0,0,16,0">
+                            <StackPanel>
+                                <TextBlock Text="Thông số tính toán"
+                                           Style="{StaticResource SectionTitleTextStyle}" />
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="190" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Lớp bảo vệ (m)"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtChieuDayLopBaoVe"
+                                             Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="{Binding ChieuDayLopBaoVe, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="bc - Chiều rộng cột (m)"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtChieuRongCot"
+                                             Grid.Row="1"
+                                             Grid.Column="1"
+                                             Text="{Binding ChieuRongCot, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="0"
+                                               Text="lc - Chiều dài cột (m)"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtChieuDaiCot"
+                                             Grid.Row="2"
+                                             Grid.Column="1"
+                                             Text="{Binding ChieuDaiCot, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="3"
+                                               Grid.Column="0"
+                                               Text="h0 - Chiều cao làm việc (cm)"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txth0"
+                                             Grid.Row="3"
+                                             Grid.Column="1"
+                                             Text="{Binding h0, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+
+                                    <TextBlock Grid.Row="4"
+                                               Grid.Column="0"
+                                               Text="Rbt - Cường độ kéo BT (MPa)"
+                                               Style="{StaticResource FieldLabelTextStyle}" />
+                                    <TextBox x:Name="txtCuongDoBeTong"
+                                             Grid.Row="4"
+                                             Grid.Column="1"
+                                             Text="{Binding CuongDoBeTong, Converter={StaticResource DecimalInputConverter}, UpdateSourceTrigger=LostFocus}"
+                                             Style="{StaticResource ModernTextBoxStyle}" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Column="1"
+                                Style="{StaticResource SectionCardStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Kết quả tính toán"
+                                           Style="{StaticResource SectionTitleTextStyle}" />
+
+                                <Border Grid.Row="1"
+                                        Style="{StaticResource SoftPanelStyle}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="260" />
+                                            <ColumnDefinition Width="190" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Text="Phản lực đáy móng max (Pomax)"
+                                                   Style="{StaticResource FieldLabelTextStyle}" />
+                                        <TextBox x:Name="txtPomax"
+                                                 Grid.Row="0"
+                                                 Grid.Column="1"
+                                                 Text="{Binding Pomax, StringFormat={}{0:F2}, Mode=OneWay}"
+                                                 IsReadOnly="True"
+                                                 Style="{StaticResource ModernTextBoxStyle}" />
+                                        <TextBlock Grid.Row="0"
+                                                   Grid.Column="2"
+                                                   Text="T/m²"
+                                                   Style="{StaticResource UnitTextStyle}" />
+
+                                        <TextBlock Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Text="Phản lực đáy móng min (Pomin)"
+                                                   Style="{StaticResource FieldLabelTextStyle}" />
+                                        <TextBox x:Name="txtPomin"
+                                                 Grid.Row="1"
+                                                 Grid.Column="1"
+                                                 Text="{Binding Pomin, StringFormat={}{0:F2}, Mode=OneWay}"
+                                                 IsReadOnly="True"
+                                                 Style="{StaticResource ModernTextBoxStyle}" />
+                                        <TextBlock Grid.Row="1"
+                                                   Grid.Column="2"
+                                                   Text="T/m²"
+                                                   Style="{StaticResource UnitTextStyle}" />
+
+                                        <TextBlock Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   Text="Phản lực mép nguy hiểm (Pot)"
+                                                   Style="{StaticResource FieldLabelTextStyle}" />
+                                        <TextBox x:Name="txtPot"
+                                                 Grid.Row="2"
+                                                 Grid.Column="1"
+                                                 Text="{Binding Pot, StringFormat={}{0:F2}, Mode=OneWay}"
+                                                 IsReadOnly="True"
+                                                 Style="{StaticResource ModernTextBoxStyle}" />
+                                        <TextBlock Grid.Row="2"
+                                                   Grid.Column="2"
+                                                   Text="T/m²"
+                                                   Style="{StaticResource UnitTextStyle}" />
+
+                                        <TextBlock Grid.Row="3"
+                                                   Grid.Column="0"
+                                                   Text="Áp lực đâm thủng (Pđt)"
+                                                   Style="{StaticResource FieldLabelTextStyle}" />
+                                        <TextBox x:Name="txtPdt"
+                                                 Grid.Row="3"
+                                                 Grid.Column="1"
+                                                 Text="{Binding Pdt, StringFormat={}{0:F2}, Mode=OneWay}"
+                                                 IsReadOnly="True"
+                                                 Style="{StaticResource ModernTextBoxStyle}" />
+                                        <TextBlock Grid.Row="3"
+                                                   Grid.Column="2"
+                                                   Text="T"
+                                                   Style="{StaticResource UnitTextStyle}" />
+
+                                        <TextBlock Grid.Row="4"
+                                                   Grid.Column="0"
+                                                   Text="Lực chống đâm thủng (Pcđt)"
+                                                   Style="{StaticResource FieldLabelTextStyle}" />
+                                        <TextBox x:Name="txtPcdt"
+                                                 Grid.Row="4"
+                                                 Grid.Column="1"
+                                                 Text="{Binding Pcdt, StringFormat={}{0:F2}, Mode=OneWay}"
+                                                 IsReadOnly="True"
+                                                 Style="{StaticResource ModernTextBoxStyle}" />
+                                        <TextBlock Grid.Row="4"
+                                                   Grid.Column="2"
+                                                   Text="T"
+                                                   Style="{StaticResource UnitTextStyle}" />
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Row="2"
+                                        Margin="0,16,0,0"
+                                        Style="{StaticResource SoftPanelStyle}">
+                                    <StackPanel>
+                                        <TextBlock Text="Kết luận"
+                                                   Style="{StaticResource SectionTitleTextStyle}" />
+                                        <TextBox Text="{Binding CheckResult, Mode=OneWay}"
+                                                 IsReadOnly="True"
+                                                 TextWrapping="Wrap"
+                                                 MinHeight="110"
+                                                 Width="Auto"
+                                                 HorizontalAlignment="Stretch"
+                                                 HorizontalContentAlignment="Left"
+                                                 TextAlignment="Left"
+                                                 Style="{StaticResource ModernTextBoxStyle}" />
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ScrollViewer>
+
+                <Border Grid.Row="2"
+                        Background="{StaticResource AppSurfaceBrush}"
+                        BorderBrush="{StaticResource AppBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="16"
+                        Padding="14"
+                        Margin="0,14,0,0">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Button Command="{Binding CalculateCommand}"
+                                Content="Tính toán"
+                                Width="150"
+                                Style="{StaticResource PrimaryButtonStyle}"
+                                Margin="0,0,12,0" />
+                        <Button x:Name="Luusolieucdt"
+                                Command="{Binding SaveResultCommand}"
+                                Content="Lưu kết quả"
+                                Width="150"
+                                Style="{StaticResource SuccessButtonStyle}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
